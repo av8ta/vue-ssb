@@ -12,7 +12,7 @@ ssbClient(
     "ws": {
       "port": 8988
     },
-    "ssb_appname": "ssb_test",
+    "ssb_appname": "ssb-test",
     "plugins": {
       "ssb-about": true,
       "ssb-backlinks": true,
