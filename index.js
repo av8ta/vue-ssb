@@ -1,4 +1,5 @@
 var ssbClient = require('ssb-client')
+var pull = require('pull-stream')
 
 // // simplest usage, connect to localhost sbot
 ssbClient(
@@ -11,7 +12,7 @@ ssbClient(
     "ws": {
       "port": 8988
     },
-    "ssb_appname": "ssb-test",
+    "ssb_appname": "ssb_test",
     "plugins": {
       "ssb-about": true,
       "ssb-backlinks": true,
@@ -25,11 +26,21 @@ ssbClient(
   else {
     console.log('sbot', sbot)
     // publish a message
-    sbot.publish({ type: 'post', text: 'test post, please ignore' }, function (err, msg) {
+    // sbot.publish({ type: 'post', text: 'test post, please ignore' }, function (err, msg) {
       // msg.key           == hash(msg.value)
       // msg.value.author  == your id
       // msg.value.content == { type: 'post', text: 'My First Post!' }
       // ...
+
+    console.log("getting all messages")
+
+    // stream all messages in all feeds, ordered by receive time
+    pull(
+      sbot.createLogStream(),
+      pull.drain(function (msg) {
+        // ALL MESSAGES HAPPEN HERE
+        console.log(msg)
     })
+  )
   }
 })
