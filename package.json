@@ -2,7 +2,7 @@
   "name": "vue-ssb",
   "version": "0.0.1",
   "description": "vuejs scuttlebot client",
-  "author": "Jolyon <jolyon@conduce.co>",
+  "author": "av8ta",
   "main": "index.js",
   "scripts": {
     "watchify": "watchify -vd -p browserify-hmr -e src/main.js -o dist/build.js",
@@ -59,7 +59,6 @@
     "vueify": "^9.0.0",
     "watchify": "^3.4.0"
   },
-  "author": "av8ta",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/av8ta/vue-ssb/issues"

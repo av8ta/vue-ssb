@@ -1,4 +1,5 @@
 # vue-ssb
+In development - not ready to use yet!
 
 Scuttlebot in Vuejs components!
 
